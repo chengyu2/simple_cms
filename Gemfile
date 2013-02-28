@@ -5,8 +5,9 @@ gem 'rails', '3.2.10'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-
+group :development do
+  gem 'mysql2'
+end 
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,13 +18,17 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 #	gem 'therubyracer', :platforms => :ruby
 
-gem 'execjs'
+  gem 'execjs'
 
 
  gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+
+group :production do
+  gem 'pg' 
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
