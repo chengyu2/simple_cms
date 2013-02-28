@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
+	
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>USNM.ORG Internal System <%= "| #{@page_title}" if @page_title%></title>
+		<meta mame="author" content="Cheng Yu">
+		<%= stylesheet_link_tag('/stylesheets/public') %>
+	</head>
+	
+	<body>
+		<div id="header">
+			<h1>Internal Communication System</h1>
+		</div>
+		
+		<div id="main">
+			<div id="navigation">
+				<%= render(:partial=>'layouts/navigation') %>
+			</div>
+			<div id="content">
+				<%= yield %>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+		
+		<div id="footer">
+			<p id="copyright">&copy; USNM.ORG / Cheng Yu</p>
+		</div>
+	</body>
+</html>

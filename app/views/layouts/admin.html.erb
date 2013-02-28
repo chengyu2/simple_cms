@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+	
+<html lang='en'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Simple CMS  | <%= @page_title || 'Admin Area' %> </title>
+		<meta name="author" content="Cheng Yu">
+		
+		<%= stylesheet_link_tag('/stylesheets/public', '/stylesheets/admin' , :media=> "all" )%>
+		<%# load public style sheet first and then load admin style sheet %>
+		
+		<%= javascript_include_tag('application') %>
+		<%# javascript_tag () allows us to type javascript directly %>
+		<%# escape_javascript() stops users from injecting malicious javascript %>
+		
+		
+		
+	</head>
+	
+	<body>
+	
+	
+		<div id="header">
+			<h1>USNM Content Management System Admin View</h1>
+
+		</div>
+		<div id="main">
+			<% if !flash[:notice].blank? %>
+			<div class="notice">
+				<%= flash[:notice] %>
+			</div> 
+			
+			<%end%>
+			
+			<div id="content">
+				<%= image_tag('/images/Nanjing Memorial Logo 2.png', :class=>"titleImage",:height=>"90px" ,:alt=>"Nanjing Massacre Memorial") %>
+
+				<%=yield%>
+			</div>
+			
+		</div>
+		<div id="footer">
+		
+			<p id="copyright">&copy; usnm.org / built by Cheng Yu &nbsp;&nbsp;&nbsp;&nbsp; 
+			 Last reload time: <%=Time.now.to_s(:long) %> </p>
+		</div>
+	</body>
+</html>

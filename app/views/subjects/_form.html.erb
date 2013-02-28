@@ -1,0 +1,44 @@
+
+<% #partial template can save time whem we have repetitive stuff in different templates %>
+
+ 
+<%# we created a helper method for rendering partial form, so this method could be further simplified %>
+
+<%=error_messages_for(@subject) %>
+
+<%#= render(:partial => 'shared/error_messages', :locals=>{:object => @subject}) %>
+
+		<table summary="Subject form fields">
+			<tr>
+				<th><%=f.label(:name)%></th> 
+				<%#this is better than typeing Name %> 
+				<%#= label(:subject, :name) %> 
+				<%#By default, "Name" will be the label name %>
+				<td><%=f.text_field(:name) %></td>
+			</tr>
+			
+			
+			<tr>
+				<th><%=f.label(:position)%></th>
+				<td><%= f.select(:position, 1..@subject_count) %></td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label(:visible)%></th>
+				<td>
+					<%#= f.text_field(:visible) %>
+					
+					<%= f.check_box(:visible) %>
+				
+				</td>
+			</tr>
+			<tr>
+				<th><%=f.label(:created_at, "Created")%></th>
+				<td><%= f.datetime_select(:created_at, :order=>[:month, :day, :year]) %></td>
+				
+		
+			</tr>
+			
+		
+			
+		</table>		

@@ -1,0 +1,28 @@
+
+<% @page_title= "Edit Subject" %>
+
+
+<%= link_to("<< Back to list", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="subject edit">
+
+	<h2> Update Subject</h2>
+	
+	<%= form_for(:subject, :url=>{:action=>'update', :id=>@subject.id}) do |f| %>
+		
+		<%# =render(:partial=>"form", :locals=> {:f=>f} ) %>
+		
+		<%= render(:partial=>"subjects/form", :locals=>{:f => f} ) %>
+		<% #specified that f is the local variable in the "new: template %>
+		<% #that corresponds to the partial template variable f in the format of :f  %>
+		<% # when we render partial, the convention is that we dont have underscore "_" %>
+		
+		
+		<div class="form-buttons">
+		
+			<%= submit_tag("Update Subject") %>
+		</div>
+	
+	<% end %>
+	
+</div> 

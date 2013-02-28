@@ -1,0 +1,30 @@
+
+<% @page_title= "Create New Subject" %>
+
+
+<%= link_to("<< Back to list", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="subject new">
+
+	<h2> Create Subject</h2>
+	
+	<%= form_for(:subject, :url=>{:action=>'create'}) do |f| %>
+		<% # comment cannot be on the same line with code %>
+		<%= render(:partial=>"subjects/form", :locals=>{:f => f} ) %>
+		<% #specified that f is the local variable in the "new: template %>
+		<% #that corresponds to the partial template variable f in the format of :f  %>
+		<% # when we render partial, the convention is that we dont have underscore "_" %>
+		
+		
+		<div class="form-buttons">
+		
+			<%= submit_tag("Create Subject") %>
+		</div>
+		
+		
+	<% end %>
+	
+</div> 
+
+
+				

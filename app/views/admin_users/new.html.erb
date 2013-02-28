@@ -1,0 +1,28 @@
+
+<% @page_title= "Create New USNM Team Member" %>
+
+
+<%= link_to("<< Back to list", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="admin_user new">
+
+	<h2> Create USNM Team Member</h2>
+	
+	<%= form_for(:admin_user, :url=>{:action=>'create'}) do |f| %>
+		<% # comment cannot be on the same line with code %>
+		<%= render(:partial=>"admin_users/form", :locals=>{:f => f} ) %>
+		<% #specified that f is the local variable in the "new: template %>
+		<% #that corresponds to the partial template variable f in the format of :f  %>
+		<% #when we render partial, the convention is that we dont have underscore "_" %>
+		
+		
+		<div class="form-buttons">
+		
+			<%= submit_tag("Create Team Member") %>
+		</div>
+		
+		
+	<% end %>
+	
+</div> 
+
